@@ -1,0 +1,15 @@
+{
+  "name": "lab2",
+  "version": "1.0.0",
+  "description": "package file for lab 2",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ashley Bromiley",
+  "license": "ISC",
+  "dependencies": {
+    "node-uuid": "^1.4.7"
+  }
+}
