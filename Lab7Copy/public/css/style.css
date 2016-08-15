@@ -1,0 +1,102 @@
+/* You didn't say it had to look good.... */
+
+body {
+    background: #551A8B;
+    font-family: "Comic Sans MS", "Times New Roman", Times, serif;
+    font-size: 15pt;
+}
+
+main {
+    max-width: 75%;
+    margin: auto;
+}
+
+header {
+    border-bottom: 1px solid #AFAFAF;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #FFFFFF;
+    margin-bottom: 5px;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+h5 {
+    font-size: 1.15rem;
+}
+
+h6 {
+    font-size: 1.05rem;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 2;
+}
+
+.all {
+    background: #551A8B;
+    padding: 1em;
+    color: #FF99FF;
+    background: #551A8B;
+    border-style: dotted ridge; 
+    border-width:5px;
+    border-color:#CCFFFF;
+    border-radius: 20px;
+}
+
+.single {
+    background: #551A8B;
+    padding: 1em;
+    color: #FF99FF;
+    background: #551A8B;
+    border-style: dotted ridge; 
+    border-width:5px;
+    border-color:#CCFFFF;
+    border-radius: 20px;
+}
+
+.fourohfour {
+    padding:5em;
+    /*padding-bottom:50%;*/
+    background: #FFFF99;
+    font-size:28pt;
+    border-style:hidden;
+    border-radius:1000px;
+}
+
+section {
+    
+}
+
+ul {
+    color: #FFFFFF;
+    background: #551A8B;
+    list-style:none;
+}
+
+li {
+    color: #FFCC99;
+    background: #551A8B;
+}
+
+li:before {
+    content: "■  "; 
+    font-family:"Arial Black";  
+    color: #FFFFFF;
+}
