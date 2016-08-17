@@ -1,38 +1,22 @@
 (function () {
-    let calculatorMethods = {
-        add: function (num1, num2) {
-            if (typeof num1 !== "number") throw "Must provide a number";
-            if (isNaN(num1)) throw "Must provide a number";
-            if (typeof num2 !== "number") throw "Must provide a number";
-            if (isNaN(num2)) throw "Must provide a number";
+    let calculation = {
+        insertText: function (string1, string2, numTimes, space) {
+            if (typeof string1 !== "string") throw "Must provide a string";
+            if (string1 === undefined) throw "Must provide a string";
+            if (typeof string2 !== "string") throw "Must provide a string";
+            if (string2 === undefined) throw "Must provide a string";
+            if (typeof numTimes !== "number") throw "Must provide a number";
+            if (isNaN(numTimes)) throw "Must provide a number";
+            if (typeof space !== "number") throw "Must provide a number";
+            if (isNaN(space)) throw "Must provide a number";
+    
+            if (space*string2.length > string2.length) throw "Numbers are too big for input";
 
-            return num1 + num2;
+            for (i = space; i < string1.length, numTimes > 0; i+=(string2.length+space), numTimes--){
+                string1 = string1.substring(0, i) + string2 + string1.substring(i, string1.length);
+            }
+            return string1;
         },
-        subtract: function (num1, num2) {
-            if (typeof num1 !== "number") throw "Must provide a number";
-            if (isNaN(num1)) throw "Must provide a number";
-            if (typeof num2 !== "number") throw "Must provide a number";
-            if (isNaN(num2)) throw "Must provide a number";
-
-            return num1 - num2;
-        },
-        multiply: function (num1, num2) {
-            if (typeof num1 !== "number") throw "Must provide a number";
-            if (isNaN(num1)) throw "Must provide a number";
-            if (typeof num2 !== "number") throw "Must provide a number";
-            if (isNaN(num2)) throw "Must provide a number";
-
-            return num1 * num2;
-        },
-        divide: function (num1, num2) {
-            if (typeof num1 !== "number") throw "Must provide a number";
-            if (isNaN(num1)) throw "Must provide a number";
-            if (typeof num2 !== "number") throw "Must provide a number";
-            if (isNaN(num2)) throw "Must provide a number";
-            if (num2 <= 0) throw "Cannot divide by 0!";
-
-            return num1 / num2;
-        }
     };
 
     function operationStringToFunction(operation) {
@@ -50,9 +34,10 @@
         // We can store references to our elements; it's better to 
         // store them once rather than re-query the DOM traversal each time
         // that the event runs.
-        var firstNumberElement = document.getElementById("number1");
-        var secondNumberElement = document.getElementById("number2");
-        var operationElement = document.getElementById("operation");
+        var firstString = document.getElementById("string1");
+        var secondString = document.getElementById("string2");
+        var firstNumber = document.getElementById("num1");
+        var secondNumber = document.getElementById("num2");
 
         var errorContainer = document.getElementById("error-container");
         var errorTextElement = errorContainer.getElementsByClassName("text-goes-here")[0];
@@ -71,16 +56,16 @@
                 resultContainer.classList.add("hidden");
 
                 // Values come from inputs as strings, no matter what :(
-                var firstNumberValue = firstNumberElement.value;
-                var secondNumberValue = secondNumberElement.value;
-                var operationValue = operationElement.value;
+                var firstStringValue = firstString.value;
+                var secondStringValue = secondString.value;
+                var firstNumberValue = firstNumber.value;
+                var secondNumberValue = secondNumber.value;
 
                 var parsedFirstNumberValue = parseInt(firstNumberValue);
                 var parsedSecondNumberValue = parseInt(secondNumberValue);
-                var operation = operationStringToFunction(operationValue);
 
-                var result = operation(parsedFirstNumberValue, parsedSecondNumberValue);
-                resultTextElement.textContent = "The result is " + result;
+                var result = insertText(firstStringValue, secondStringValue, parsedFirstNumberValue, parsedSecondNumberValue);
+                //resultTextElement.textContent = "The result is " + result;
                 resultContainer.classList.remove("hidden");
             } catch (e) {
                 var message = typeof e === "string" ? e : e.message;

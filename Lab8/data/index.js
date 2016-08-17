@@ -1,5 +1,5 @@
-const calculator = require("./calculator");
+const form = require("./form");
 
 module.exports = {
-    calculator: calculator
+    form: form
 };
